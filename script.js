@@ -1,5 +1,6 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function(){
+   let faultyItems = document.getElementById("faultyItems");
    let formSubmit = document.getElementById("formSubmit");  
    let pilotName = document.getElementById("pilotName");
    let copilotName = document.getElementById("copilotName");
@@ -8,10 +9,26 @@ window.addEventListener("load", function(){
    formSubmit.addEventListener("click", function(){
       if (isNaN(Number(pilotName.value)) && isNaN(Number(copilotName.value)) && Number(fuelLevel.value) != NaN && Number(cargoMass.value) != NaN){
          console.log("success!");
+         faultyItems.style.visibility = "visible";
+         document.getElementById("pilotStatus").innerHTML = pilotName.value;
+      
+      
       }else{
          console.log("failure!");
+         event.preventDefault();
+         window.alert("Please input valid parameters");
       }
+      
+   
    });
+   
+
+
+
+
+
+
+
 });
 
 
